@@ -71,12 +71,12 @@ public class CustomerService implements ICustomerService {
 
     @Override
     public List<Customer> getAllCustomerWithFirstNameAndLastNameSubStr(String subStrFirst, String subStrLast) {
-        return  customerRepository.getSimilarFirstLastName(subStrFirst, subStrLast);
+        return  customerRepository.getSimilarFirstLastNameWithObject(subStrFirst, subStrLast);
     }
 
     @Override
     public Optional<Customer> getCustomerDetailById(long id) {
-        return customerRepository.getCustomerDetailsById(id);
+        return customerRepository.getCustomerDetailsByIdWithObject(id);
     }
 
 

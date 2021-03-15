@@ -9,8 +9,10 @@ import java.io.Serializable;
 @Entity
 @Table(name = "customer")
 @NamedQueries({
-        @NamedQuery(name = "Customer.getCustomerDetailsById", query = "SELECT c FROM Customer c WHERE c.customerId = :customerId")
-        , @NamedQuery(name = "Customer.getSimilarFirstLastName", query = "select c from Customer c where substring(c.firstName, 1, length(:subStrFirst)) = :subStrFirst and substring(c.lastName, 1, length(:subStrLast)) = :subStrLast")
+        @NamedQuery(name = "Customer.getCustomerDetailsById", query = "SELECT c.customerId, c.firstName, c.lastName, c.email, c.address FROM Customer c WHERE c.customerId = :customerId")
+        , @NamedQuery(name = "Customer.getCustomerDetailsByIdWithObject", query = "SELECT c FROM Customer c WHERE c.customerId = :customerId")
+        , @NamedQuery(name = "Customer.getSimilarFirstLastName", query = "select c.customerId, c.firstName, c.lastName, c.email, c.address from Customer c where substring(c.firstName, 1, length(:subStrFirst)) = :subStrFirst and substring(c.lastName, 1, length(:subStrLast)) = :subStrLast")
+        , @NamedQuery(name = "Customer.getSimilarFirstLastNameWithObject", query = "select c from Customer c where substring(c.firstName, 1, length(:subStrFirst)) = :subStrFirst and substring(c.lastName, 1, length(:subStrLast)) = :subStrLast")
         , @NamedQuery(name = "Customer.getCustomerDetailsByDate", query = "SELECT c.firstName, c.lastName, c.email, c.customerId FROM Customer c WHERE c.lastUpdate < :date")
         , @NamedQuery(name = "Customer.findByFirstName", query = "SELECT c FROM Customer c WHERE c.firstName = :firstName")
         , @NamedQuery(name = "Customer.findByLastName", query = "SELECT c FROM Customer c WHERE c.lastName = :lastName")

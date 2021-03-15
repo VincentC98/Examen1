@@ -14,8 +14,8 @@ public interface CustomerRepository extends JpaRepository<Customer, Long> {
     Customer findCustomerByCreateDate(Timestamp createDate);
     List<Customer> findByFirstNameSubStr(String subStr);
     List<Customer> findAllCustomerIdDesc();
-    //requête demandé
-    List<Customer> getSimilarFirstLastName( String subStrFirst, String subStrLast);
-    Optional<Customer> getCustomerDetailsById(@Param("customerId") Long customerId);
+    //requête demandé **Je n'ai pas réussi à utiliser celui avec les selects
+    List<Customer> getSimilarFirstLastNameWithObject( String subStrFirst, String subStrLast);
+    Optional<Customer> getCustomerDetailsByIdWithObject(@Param("customerId") Long customerId);
     List<Customer> getCustomerDetailsByDate(Date date);
 }
