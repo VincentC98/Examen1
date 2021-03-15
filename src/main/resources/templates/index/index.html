@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index - Demo Thymeleaf</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
+
+</head>
+<body>
+
+<!--HEADER-->
+<div th:replace="fragments/header::top-nav"></div>
+
+    <h1 class="card-title"> Hello World</h1>
+    <h3 th:text="${myName}"></h3>
+    <h3 th:text="${date}"></h3>
+
+<!--FOOTER-->
+<footer th:replace="fragments/footer::footer"></footer>
+</body>
+</html>
