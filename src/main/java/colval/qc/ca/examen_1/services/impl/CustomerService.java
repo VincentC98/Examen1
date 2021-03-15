@@ -60,13 +60,23 @@ public class CustomerService implements ICustomerService {
     }
 
     @Override
-    public List<Customer> findAllCustomerIdDescAndLimitTen() {
-        return customerRepository.findAllCustomerIdDesc().stream().limit(10).collect(Collectors.toList());
+    public List<Customer> findAllCustomerIdDescAndLimit50() {
+        return customerRepository.findAllCustomerIdDesc().stream().limit(50).collect(Collectors.toList());
     }
 
     @Override
     public List<Customer> getAllCustomerWithFirstNameSubStr(String subStr) {
         return customerRepository.findByFirstNameSubStr(subStr);
+    }
+
+    @Override
+    public List<Customer> getAllCustomerWithFirstNameAndLastNameSubStr(String subStrFirst, String subStrLast) {
+        return  customerRepository.getSimilarFirstLastName(subStrFirst, subStrLast);
+    }
+
+    @Override
+    public Optional<Customer> getCustomerDetailById(long id) {
+        return customerRepository.getCustomerDetailsById(id);
     }
 
 

@@ -20,8 +20,12 @@ public interface ICustomerService {
 
     Long countAllCustomer();
 
-    List<Customer> findAllCustomerIdDescAndLimitTen();
+    List<Customer> findAllCustomerIdDescAndLimit50();
 
     List<Customer> getAllCustomerWithFirstNameSubStr(String subStr);
+
+    List<Customer> getAllCustomerWithFirstNameAndLastNameSubStr(String subStrFirst, String subStrLast);
+
+    Optional<Customer> getCustomerDetailById(long id);
 
 }

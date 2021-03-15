@@ -9,7 +9,9 @@ import java.io.Serializable;
 @Entity
 @Table(name = "customer")
 @NamedQueries({
-        @NamedQuery(name = "Customer.findByCustomerId", query = "SELECT c FROM Customer c WHERE c.customerId = :customerId")
+        @NamedQuery(name = "Customer.getCustomerDetailsById", query = "SELECT c FROM Customer c WHERE c.customerId = :customerId")
+        , @NamedQuery(name = "Customer.getSimilarFirstLastName", query = "select c from Customer c where substring(c.firstName, 1, length(:subStrFirst)) = :subStrFirst and substring(c.lastName, 1, length(:subStrLast)) = :subStrLast")
+        , @NamedQuery(name = "Customer.getCustomerDetailsByDate", query = "SELECT c.firstName, c.lastName, c.email, c.customerId FROM Customer c WHERE c.lastUpdate < :date")
         , @NamedQuery(name = "Customer.findByFirstName", query = "SELECT c FROM Customer c WHERE c.firstName = :firstName")
         , @NamedQuery(name = "Customer.findByLastName", query = "SELECT c FROM Customer c WHERE c.lastName = :lastName")
         , @NamedQuery(name = "Customer.findByEmail", query = "SELECT c FROM Customer c WHERE c.email = :email")
@@ -18,9 +20,7 @@ import java.io.Serializable;
         , @NamedQuery(name = "Customer.findByLastUpdate", query = "SELECT c FROM Customer c WHERE c.lastUpdate = :lastUpdate")
         , @NamedQuery(name = "Customer.findAllCustomerSortedByLastName", query = "SELECT  c FROM Customer c order by c.lastName asc ")
         , @NamedQuery(name = "Customer.findByFirstNameSubStr", query = "select c from Customer c where substring(c.firstName, 1, length(:subStr)) = :subStr")
-        , @NamedQuery(name = "Customer.findAllCustomerIdDesc", query = "SELECT c FROM Customer c ORDER BY c.customerId desc "
-
-)
+        , @NamedQuery(name = "Customer.findAllCustomerIdDesc", query = "SELECT c FROM Customer c ORDER BY c.customerId desc ")
 })
 @NoArgsConstructor
 @AllArgsConstructor

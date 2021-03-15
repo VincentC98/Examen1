@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
+
+</head>
+<body>
+
+<div th:replace="fragments/header::top-nav"></div>
+
+<form method="post" th:action="@{/staff/doSearchStore}">
+    <label>Research customer:</label><br>
+    <input required th:value="${searchStoreId}" type="text" name="searchStoreId" placeholder="rechercher storeId"><br>
+    <input type="submit" value="Submit">
+</form>
+
+<table class="table table-hover">
+    <thead class="text-warning">
+    <th>Id</th>
+    <th>Prenom(s)</th>
+    <th>Nom</th>
+    <th>email</th>
+    </thead>
+    <tbody>
+    <tr th:each="staff:${allStaff}">
+        <td th:text="${staff.staffId}"></td>
+        <td th:text="${staff.firstName}"></td>
+        <td th:text="${staff.lastName}"></td>
+        <td th:text="${staff.email}"></td>
+
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<!--FOOTER-->
+<footer th:replace="fragments/footer::footer"></footer>
+</body>
+</html>

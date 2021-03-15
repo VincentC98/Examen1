@@ -16,4 +16,6 @@ public interface IStaffService {
 
     List<Staff> getAllTenRandomStaff();
 
+    List<Staff> getAllStaffByStoreId(long storeId);
+
 }

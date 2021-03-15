@@ -42,4 +42,9 @@ public class StaffService implements IStaffService {
     public List<Staff> getAllTenRandomStaff() {
         return null;
     }
+
+    @Override
+    public List<Staff> getAllStaffByStoreId(long storeId) {
+        return staffRepository.getStaffByStore(storeId);
+    }
 }

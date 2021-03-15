@@ -9,7 +9,8 @@ import java.io.Serializable;
 @Entity
 @Table(name = "staff")
 @NamedQueries({
-        @NamedQuery(name = "Staff.findAll", query = "SELECT s FROM Staff s")
+        @NamedQuery(name = "Staff.getStaffByStore", query = "SELECT s FROM Staff s where s.storeId = : storeId order by s.firstName asc ")
+        /*@NamedQuery(name = "Staff.findAll", query = "SELECT s FROM Staff s")
         , @NamedQuery(name = "Staff.findByStaffId", query = "SELECT s FROM Staff s WHERE s.staffId = :staffId")
         , @NamedQuery(name = "Staff.findByFirstName", query = "SELECT s FROM Staff s WHERE s.firstName = :firstName")
         , @NamedQuery(name = "Staff.findByLastName", query = "SELECT s FROM Staff s WHERE s.lastName = :lastName")
@@ -17,7 +18,7 @@ import java.io.Serializable;
         , @NamedQuery(name = "Staff.findByActive", query = "SELECT s FROM Staff s WHERE s.active = :active")
         , @NamedQuery(name = "Staff.findByUsername", query = "SELECT s FROM Staff s WHERE s.username = :username")
         , @NamedQuery(name = "Staff.findByPassword", query = "SELECT s FROM Staff s WHERE s.password = :password")
-        , @NamedQuery(name = "Staff.findByLastUpdate", query = "SELECT s FROM Staff s WHERE s.lastUpdate = :lastUpdate")})
+        , @NamedQuery(name = "Staff.findByLastUpdate", query = "SELECT s FROM Staff s WHERE s.lastUpdate = :lastUpdate")*/})
 
 @NoArgsConstructor
 @AllArgsConstructor
